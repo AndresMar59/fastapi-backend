@@ -1,11 +1,8 @@
 {
-  "version": 2,
-  "functions": {
-    "api/index.py": {
-      "runtime": "python3.10"
-    }
-  },
-  "routes": [
-    { "src": "/(.*)", "dest": "api/index.py" }
-  ]
+  "buildCommand": "",
+  "installCommand": "",
+  "outputDirectory": ".",
+  "github": {
+    "silent": true
+  }
 }
