@@ -2,7 +2,10 @@ from app.Brex.Client  import BrexClient
 from urllib.parse import unquote
 from fastapi import HTTPException
 from datetime import timezone, datetime
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 client = BrexClient()
 
 
@@ -21,9 +24,9 @@ def costos_CAC( start_date: str, end_date: str | None = None, acumulado:bool | N
     if len(end_date) == 19:
         end_date += ".000"
 
-    expenses = client.get_expenses_paginated({
+    expenses = client.paginated({
         "purchased_at_start": start_date,
-        "purchased_at_end": end_date},"/expenses/card")
+        "purchased_at_end": end_date},"v1/expenses/card")
 
     print("DEBUG PAGOS:", expenses)
 
@@ -107,10 +110,10 @@ def costos_UE( start_date: str, end_date:str, acumulado: bool | None=None):
     if len(end_date) == 19:
         end_date += ".000"
 
-    expenses = client.get_expenses_paginated({
+    expenses = client.paginated({
         "purchased_at_start": start_date,
         "purchased_at_end": end_date,
-        },"/expenses/card")
+        },"v1/expenses/card")
 
     print("DEBUG PAGOS:", expenses)
 
@@ -178,10 +181,3 @@ def costos_UE( start_date: str, end_date:str, acumulado: bool | None=None):
 
              resumen[fecha] += amount
     return resumen
-
-
-
-
-
-
-
