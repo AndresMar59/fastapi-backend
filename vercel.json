@@ -1,7 +1,4 @@
 {
-  "buildCommand": "",
-  "installCommand": "",
-  "outputDirectory": ".",
   "github": {
     "silent": true
   }
