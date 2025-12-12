@@ -1,24 +1,30 @@
+import json
+import os
 from google.oauth2.service_account import Credentials
 from googleapiclient.discovery import build
 
-
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
-SERVICE_ACCOUNT_FILE = "service-account.json"
-SHEET_ID = "1NTdiIrjbj4o5cqq2L4SLta5fNniQ4g5mjkNLazKMbqk"
-RANGE = "Class Data!A2:E"
 
 class GoogleSheetsClient:
-    def __init__(self, key_file):
-        self.creds = Credentials.from_service_account_file(
-            key_file, scopes=SCOPES # este scope es solo para lectura. No se puede escribir nada
-        )
-        
-    def cred(self):   
-        self.service = build("sheets", "v4", credentials=self.creds)
-        self.sheet = self.service.spreadsheets()
-        return self.sheet
-        
+    def __init__(self):
+        raw_json = os.getenv("GOOGLE_CREDENTIALS")
 
+        if not raw_json:
+            raise ValueError("GOOGLE_CREDENTIALS no está configurada en las variables de entorno")
+
+        # Convertir JSON (string) → diccionario
+        creds_dict = json.loads(raw_json)
+
+        # Crear credenciales desde diccionario
+        self.creds = Credentials.from_service_account_info(
+            creds_dict,
+            scopes=SCOPES
+        )
+
+    def cred(self):
+        service = build("sheets", "v4", credentials=self.creds)
+        sheet = service.spreadsheets()
+        return sheet
 
   
 

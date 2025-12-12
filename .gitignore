@@ -10,7 +10,8 @@ env/
 # ======================
 
 app/Google/service-account.json
-
+service-account.json
+*.json
 # ======================
 # ARCHIVOS PYTHON COMPILADOS
 # ======================
