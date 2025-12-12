@@ -24,4 +24,4 @@ COPY . .
 EXPOSE 8000
 
 # Ejecutar FastAPI con uvicorn apuntando a api/index.py
-CMD ["uvicorn", "api.index:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["sh", "-c", "uvicorn api.index:app --host 0.0.0.0 --port ${PORT:-8000}"]
