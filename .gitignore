@@ -1,0 +1,42 @@
+# ======================
+# ENTORNO VIRTUAL
+# ======================
+.venv/
+venv/
+env/
+
+# ======================
+# APLICATIVO DE GOOGLE
+# ======================
+
+app/Google/service-account.json
+
+# ======================
+# ARCHIVOS PYTHON COMPILADOS
+# ======================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ======================
+# VARIABLES DE ENTORNO
+# ======================
+.env
+
+# ======================
+# ARCHIVOS EDITOR / IDE
+# ======================
+.vscode/
+.idea/
+
+# ======================
+# SISTEMA OPERATIVO
+# ======================
+*.DS_Store
+Thumbs.db
+
+# ======================
+# ARCHIVOS QUE NO DEBEN SUBIRSE
+# ======================
+*.log

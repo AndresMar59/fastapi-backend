@@ -1,7 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from datetime import datetime
 from urllib.parse import unquote
-from dateutil.parser import isoparse
 from app.Brex.Service import costos_CAC, costos_UE
 from datetime import timezone, datetime
 

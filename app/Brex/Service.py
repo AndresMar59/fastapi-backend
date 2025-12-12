@@ -156,7 +156,7 @@ def costos_UE( start_date: str, end_date:str, acumulado: bool | None=None):
              vendo = SOFTWARE_MERCHANT_IDS[vendor]
              amount_cents = gasto["original_amount"]["amount"]
              amount = amount_cents / 100 
-             fecha = gasto["purchased_at"][:7]
+             fecha = gasto["purchased_at"][:7] 
 
              if fecha not in resumen:
               resumen[fecha] = {}
