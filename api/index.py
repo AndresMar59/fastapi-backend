@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from mangum import Mangum
+from api.Brex_router import router as brex_router
+from api.Google_router import router as google_router
 
 # Crear la aplicación FastAPI
 app = FastAPI(
@@ -16,10 +18,10 @@ def read_root():
         "status": "ok"
     }
 
-# Endpoint de ejemplo
-@app.get("/api/test")
-def test_endpoint():
-    return {"test": "success"}
+# Registrar routers
+app.include_router(brex_router)
+app.include_router(google_router)
+
 
 # Si necesitas routers, primero asegúrate de que existan
 # Ejemplo de cómo agregar routers cuando estén listos:
