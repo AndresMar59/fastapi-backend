@@ -16,4 +16,5 @@ def root():
     return {"message": "API funcionando en Vercel"}
 
 # Handler para Vercel
-handler = Mangum(app)
+# Al parecer FastAPI tiene un sistema de lifespan events que puede causar problemas en el entorno serverless de Vercel.
+handler = Mangum(app, lifespan="off")
