@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from mangum import Mangum
-from .routes.Brex_router import router as brex_router
-from .routes.Google_router import router as google_router
+from routes.Brex_router import router as brex_router
+from routes.Google_router import router as google_router
 
 
 # Crear la aplicación FastAPI
@@ -14,11 +14,6 @@ def read_root():
         "message": "API funcionando en Vercel",
         "status": "ok"
     }
-
-@app.get("/debug/routes")
-def debug_routes():
-    return [route.path for route in app.routes]
-
 
 app.include_router(brex_router)
 app.include_router(google_router)

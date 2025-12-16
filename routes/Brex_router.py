@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from datetime import datetime
 from urllib.parse import unquote
-from ..app.Brex.Service import costos_CAC, costos_UE
+from app.Brex.Service import costos_CAC, costos_UE
 from datetime import timezone, datetime
 
 router = APIRouter(prefix="/brex")
