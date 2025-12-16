@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from mangum import Mangum
-from api.Brex_router import router as brex_router
-from api.Google_router import router as google_router
+from Brex_router import router as brex_router
+from Google_router import router as google_router
 
 # Crear la aplicación FastAPI
 app = FastAPI(
