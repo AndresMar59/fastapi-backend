@@ -4,7 +4,7 @@ from urllib.parse import unquote
 from app.Brex.Service import costos_CAC, costos_UE
 from datetime import timezone, datetime
 
-router = APIRouter()
+router = APIRouter(prefix="/brex")
 
 
 def validar_fecha_rfc3339(fecha_str: str, nombre: str):
@@ -19,7 +19,7 @@ def validar_fecha_rfc3339(fecha_str: str, nombre: str):
 
     return dt
 
-@router.get("/costos/CAC")
+@router.get("/CAC")
 def Costo_CAC(start_date: str, end_date: str | None = None, acumulado: bool | None =None):
 
     if end_date is None:
@@ -42,7 +42,7 @@ def Costo_CAC(start_date: str, end_date: str | None = None, acumulado: bool | No
     return costos_CAC(start_date, end_date, acumulado)
 
 
-@router.get("/costos/UE")
+@router.get("/UE")
 def Costo_UE(start_date: str, end_date: str | None = None, acumulado: bool | None = None ):
 
     if end_date is None:
