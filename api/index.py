@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from mangum import Mangum
-from .Brex_router import router as brex_router
-from .Google_router import router as google_router
+from .routes.Brex_router import router as brex_router
+from .routes.Google_router import router as google_router
 
 # Crear la aplicación FastAPI
 app = FastAPI(
@@ -22,13 +22,6 @@ def read_root():
 app.include_router(brex_router)
 app.include_router(google_router)
 
-
-# Si necesitas routers, primero asegúrate de que existan
-# Ejemplo de cómo agregar routers cuando estén listos:
-# from app.Brex.router import router as brex_router
-# from app.Google.router import router as google_router
-# app.include_router(brex_router)
-# app.include_router(google_router)
 
 # Handler para Vercel - DEBE estar al final
 handler = Mangum(app, lifespan="off")
