@@ -1,4 +1,4 @@
-from app.Google.Client import GoogleSheetsClient
+from .Client import GoogleSheetsClient
 
 def read(sheet_id, range_):
     client = GoogleSheetsClient()

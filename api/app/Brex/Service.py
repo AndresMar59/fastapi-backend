@@ -1,4 +1,4 @@
-from app.Brex.Client  import BrexClient
+from .Client import BrexClient
 from urllib.parse import unquote
 from fastapi import HTTPException
 from datetime import timezone, datetime
