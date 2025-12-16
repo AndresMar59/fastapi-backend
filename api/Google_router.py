@@ -1,4 +1,4 @@
-from app.Google.Service import read
+from .app.Google.Service import read
 from fastapi import APIRouter, HTTPException
 
 router = APIRouter()

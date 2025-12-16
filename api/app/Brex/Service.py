@@ -3,7 +3,6 @@ from urllib.parse import unquote
 from fastapi import HTTPException
 from datetime import timezone, datetime
 from dotenv import load_dotenv
-import os
 
 load_dotenv()
 client = BrexClient()
